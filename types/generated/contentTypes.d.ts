@@ -362,104 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiSubtaskSubtask extends Schema.CollectionType {
-  collectionName: 'subtasks';
-  info: {
-    singularName: 'subtask';
-    pluralName: 'subtasks';
-    displayName: 'Subtask';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-        maxLength: 40;
-      }>;
-    subtitle: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 70;
-      }>;
-    notes: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 300;
-      }>;
-    priority: Attribute.Enumeration<['low', 'medium', 'high']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'low'>;
-    is_done: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    task: Attribute.Relation<
-      'api::subtask.subtask',
-      'manyToOne',
-      'api::task.task'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::subtask.subtask',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::subtask.subtask',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTaskTask extends Schema.CollectionType {
-  collectionName: 'tasks';
-  info: {
-    singularName: 'task';
-    pluralName: 'tasks';
-    displayName: 'Task';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-        maxLength: 40;
-      }>;
-    subtitle: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 70;
-      }>;
-    notes: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 300;
-      }>;
-    priority: Attribute.Enumeration<['low', 'medium', 'high']> &
-      Attribute.DefaultTo<'low'>;
-    is_done: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    subtasks: Attribute.Relation<
-      'api::task.task',
-      'oneToMany',
-      'api::subtask.subtask'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -881,6 +783,104 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubtaskSubtask extends Schema.CollectionType {
+  collectionName: 'subtasks';
+  info: {
+    singularName: 'subtask';
+    pluralName: 'subtasks';
+    displayName: 'Subtask';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 40;
+      }>;
+    subtitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 70;
+      }>;
+    notes: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    priority: Attribute.Enumeration<['low', 'medium', 'high']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'low'>;
+    is_done: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    task: Attribute.Relation<
+      'api::subtask.subtask',
+      'manyToOne',
+      'api::task.task'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subtask.subtask',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subtask.subtask',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTaskTask extends Schema.CollectionType {
+  collectionName: 'tasks';
+  info: {
+    singularName: 'task';
+    pluralName: 'tasks';
+    displayName: 'Task';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 40;
+      }>;
+    subtitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 70;
+      }>;
+    notes: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    priority: Attribute.Enumeration<['low', 'medium', 'high']> &
+      Attribute.DefaultTo<'low'>;
+    is_done: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    subtasks: Attribute.Relation<
+      'api::task.task',
+      'oneToMany',
+      'api::subtask.subtask'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -891,8 +891,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::subtask.subtask': ApiSubtaskSubtask;
-      'api::task.task': ApiTaskTask;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -901,6 +899,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::subtask.subtask': ApiSubtaskSubtask;
+      'api::task.task': ApiTaskTask;
     }
   }
 }
