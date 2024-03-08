@@ -8,14 +8,14 @@ nvm use
 Also just wanna inform you that here in API side repo too much commited files that shouldn't have be here, but it's because to save DB for testing by you and don't waste a time for backend part, sorry for that 🙏
 
 ### `Install packages`
-firstly install all packages, just run
+Firstly install all packages, just run
 ```
 yarn install
 ```
 
-### `start`
+### `Run the project`
 
-to start the project just run
+To start the project just run
 
 ```
 yarn start
