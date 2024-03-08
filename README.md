@@ -5,6 +5,7 @@ To run the project you need node version 18. There is .nvmrc file in the root of
 ```
 nvm use
 ```
+Also just wanna inform you that here in API side repo too much commited files that shouldn't have be here, but it's because to save DB for testing by you and don't waste a time for backend part, sorry for that 🙏
 
 ### `Install packages`
 firstly install all packages, just run
