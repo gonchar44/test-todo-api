@@ -22,8 +22,6 @@ Icon
 # Windows
 ############################
 
-Thumbs.db
-ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 *.cab
@@ -65,7 +63,7 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
-.tmp
+#.tmp
 *.log
 *.sql
 *.sqlite
