@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_subtodos_subtodos",
+  "info": {
+    "displayName": "Subtodos",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 40,
+      "minLength": 3,
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "notes": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "low"
+    },
+    "is_done": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

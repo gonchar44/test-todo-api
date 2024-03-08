@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subtasks",
+  "info": {
+    "singularName": "subtask",
+    "pluralName": "subtasks",
+    "displayName": "Subtask"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40,
+      "minLength": 3
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "notes": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "low",
+      "required": true
+    },
+    "is_done": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "task": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::task.task",
+      "inversedBy": "subtasks"
+    }
+  }
+}
